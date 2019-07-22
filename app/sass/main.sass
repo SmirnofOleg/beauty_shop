@@ -17,6 +17,95 @@ body
 	font-family: $default-font
 	overflow-x: hidden
 	color: $text
+	&.ishome
+		.site-header
+			min-height: 700px
+			height: 100vh
+			background: $bg
+			.img-box
+				position: absolute
+				background-repeat: no-repeat
+				top: 50%
+				left: 50%
+				transform: translate(-50%, -50%)
+			.top-line
+				position: absolute
+				padding: 40px 0 0 40px
+				width: 100%
+				z-index: 1
+				.logo
+					font-size: 22px
+					text-decoration: none
+					text-transform: uppercase
+					span
+						color: $accent
+						font-weight: 800
+			.phone
+				position: absolute
+				right: 85px
+				top: 40px
+				color: #fff
+				font-family: firasans, sans-serif
+				font-size: 20px
+				white-space: nowrap
+				.fa
+					font-size: 22px
+					margin-right: 5px
+			.hamburger
+				.menu-link
+					position: absolute
+					display: block
+					width: 50px
+					height: 50px
+					top: 20px
+					right: 20px
+					box-shadow: 1px 1px 10px rgba(0,0,0,0.4)
+					transition: 0.3s
+					&:hover
+						opacity: 0.7
+					span, span:before, span:after 
+						position: absolute
+						display: block
+						width: 30px
+						height: 2px
+						left: 50%
+						top: 50%
+						margin-left: -15px
+						margin-top: 8px
+						background: #fff
+					span:before
+						content: ''
+						margin-top: -9px
+						transition: all 0.3s
+					span::after
+						content: ''
+						margin-top: 7px
+						transition: all 0.3s
+					&_active span
+						background-color: transparent
+						&:before
+							transform: rotate(135deg)
+							margin-top: 0
+						&:after
+							transform: rotate(-135deg)
+							margin-top: 0
+		.mm-menu a, .mm-menu a:active, .mm-menu a:hover, .mm-menu a:link, .mm-menu a:visited
+			margin-left: 20px
+			.logo
+				font-size: 22px
+				text-decoration: none
+				text-transform: uppercase
+				span
+					color: $accent
+					font-weight: 800			
+			&:hover
+				color: $accent
+			
+section, header
+	position: relative				
+
+section
+	background: #fff	
 	input, textarea
 		border: #666 1px solid
 		outline: none
