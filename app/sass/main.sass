@@ -1,13 +1,88 @@
 @import "vars"
 @import "fonts"
 @import "libs"
-
 ::placeholder
 	color: #666
 
 ::selection
 	background-color: $accent
 	color: #fff
+
+.h1, h2, h3, h4, h5,h6
+	line-height: 1.4
+	text-transform: uppercase
+				
+section, header
+	position: relative				
+
+section
+	background: #fff	
+	input, textarea
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid
+			border-color: red
+		&:required:valid
+			border-color: green
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+	&.img-width
+		width: 100%
+
+.text-center
+	text-align: center
+
+b, strong
+	font-weight: bold
+/*кнопка*/
+
+.button
+	display: inline-block
+	border: none
+	color: #fff
+	text-decoration: none
+	background-color: $accent
+	padding: 16px 45px
+	font-size: 13px
+	text-transform: uppercase
+	font-weight: 600
+	letter-spacing: 3px
+	border-radius: 2px
+	text-align: center
+	position: relative
+	outline: none
+	transition: background-color .1s ease
+	cursor: pointer
+				
+	&:after 
+		transition: background-color .2s ease
+		position: absolute
+		content: ''
+		height: 4px
+		bottom: 0
+		width: 100%
+		background-color: darken($accent, 50%)
+		opacity: .18
+		border-bottom-left-radius: 2px
+		border-bottom-right-radius: 2px
+		left: 0
+				
+	&:focus, &:hover
+		text-decoration: none
+		//color: #fff
+				
+	&:hover
+		background-color: lighten($accent, 5%)
+	&::after
+		opacity: .22
+
+	&:active 
+		background-color: darken($accent, 5%)
+	&::after 
+		opacity: .32	
 
 body
 	font-size: 16px
@@ -19,15 +94,17 @@ body
 	color: $text
 	&.ishome
 		.site-header
-			min-height: 700px
+			position: relative
+			min-height: 900px
 			height: 100vh
 			background: $bg
 			.img-box
 				position: absolute
 				background-repeat: no-repeat
-				top: 50%
+				top: 30%
 				left: 50%
 				transform: translate(-50%, -50%)
+				box-shadow: 10px 5px 10px rgba(0,0,0,0.4)
 			.top-line
 				position: absolute
 				padding: 40px 0 0 40px
@@ -58,7 +135,7 @@ body
 					width: 50px
 					height: 50px
 					top: 20px
-					right: 20px
+					right: 6px
 					box-shadow: 1px 1px 10px rgba(0,0,0,0.4)
 					transition: 0.3s
 					&:hover
@@ -102,46 +179,114 @@ body
 				color: $accent
 		/*текст*/		
 		.header-text
+			position: absolute
 			display: flex
 			flex-flow: row nowrap
-			justify-content: center		
+			justify-content: center
+			align-content: flex-end
 			width: 100%
+			bottom: 100px
+			color: #fff
 			.text-center
 				display: flex
-				flex-direction: row
+				flex-direction: column
+				align-content: flex-end
 				width: 50%
-					
-				
-.h1, h2, h3, h4, h5,h6
-	line-height: 1.4
-	text-transform: uppercase
-				
-section, header
-	position: relative				
+			.welcome
+				font-size: 14px
+				&__span
+					display: flex
+					align-items: baseline
+					text-align: center
+					p
+						span
+							text-transform: uppercase
+							padding: 0 20px
+					&::before, &::after
+						content: ''
+						height: 1px
+						width: 100%
+						position: relative
+						background-color: #fff
+						display: inline-block
+						text-align: center
+				.h1
+					font-weight: 100
+					font-size: 56px
+					margin: 0
+					border-bottom: 1px solid #fff
+				strong
+					display: block
+					text-transform: uppercase
+					font-size: 17px
+					margin-top: 20px
+					.fa
+						margin-right: 10px
+						font-size: 12px
+						color: #555
+						&:last-child
+							margin-left: 10px
+							margin-right: inherit
+				&__button
+					margin-bottom: 40px
 
-section
-	background: #fff	
-	input, textarea
-		border: #666 1px solid
-		outline: none
-		&:focus:required:invalid
-			border-color: red
-		&:required:valid
-			border-color: green
-
-.img-responsive
-	display: block
-	max-width: 100%
-	height: auto
-	&.img-width
-		width: 100%
-
-.text-center
-	text-align: center
-
-b, strong
-	font-weight: bold
+					/*социальные иконки*/
 
 
+.header-social
+	position: absolute
+	display: flex
+	right: 0
+	top: 0
+	height: 100%
+	border-left: 1px solid rgba(#fff, 0.1)
+	padding: 0 12px
+
+.social
+	margin: auto
+	ul, li
+		margin: 0
+		padding: 0
+		list-style-type: none
+		a
+			display: block
+			font-size: 17px
+			color: #2c2c2c
+			background-color: rgba(#fff, 0.2)
+			height: 38px
+			width: 38px
+			text-align: center
+			margin: 18px 0
+			line-height: 38px
+			border-radius: 10em
+			transition: background-color 0.3s ease
+			&:hover
+				background-color: rgba(#fff, 0.4)
+
+	/*Контакты*/
+.header-contacts
+	display: flex
+	justify-content: space-around
+	width: 100%
+	position: absolute
+	bottom: 0
+	left: 0
+	border-top: rgba(#fff, 0.15) 1px solid
+	padding: 12px 0
+	background-color: rgba(#151515, 0.15)
+	.fa
+		margin-right: 5px
+		color: #555
+	.phone-h
+		font-family: firasans, sans-serif										
+
+	/*slider*/
+	/*цикл по цветам*/		
+$colors: $blue, $red, $accent
+@for $i from 1 through length($colors)
+	.carousel-services .owl-item:nth-child(#{length($colors)}n+#{$i})
+		background-color: nth($colors, $i)
 
 @import "media" // Always at the end
+
+

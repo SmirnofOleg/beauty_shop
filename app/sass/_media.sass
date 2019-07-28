@@ -8,10 +8,17 @@
 
 // ≥992px
 +media-breakpoint-down(md)
-
+	
 // ≥768px
-+media-breakpoint-down(sm)
+	@media only screen and (max-width : 768px)
+// +media-breakpoint-down(sm)
+		.my-page
+			.welcome
+				&__span
+					.h1
+						font-size: 36px
 
+	
 // ≥576px
 +media-breakpoint-down(xs)
 

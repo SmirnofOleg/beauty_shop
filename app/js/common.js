@@ -1,4 +1,4 @@
-$(function() {
+$(document).ready(function() {
 	var link = $('.menu-link');
 	var link_active = $('.menu-link_active');
 
@@ -33,5 +33,25 @@ $(function() {
                 }
             });
         }
-    );
+	);
+	
+	//carousel-services слайдер owl-carousel
+	$('.carousel-services').owlCarousel({
+		loop: true, //бесконечный слайдер
+		nav: true, //навигация
+		smartSpeed: 700, //скорость листания
+		navText: ['<i class="fa fa-angle-double-left"></i>', '<i class="fa fa-angle-double-right"></i>'],
+		responsiveClass: true,
+		responsive: {
+			0: {
+				items: 1
+			},
+			800: {
+				items: 2
+			},
+			1100: {
+				items: 3
+			},
+		}
+	});
 });

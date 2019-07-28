@@ -25,7 +25,7 @@ gulp.task('browser-sync', function() {
 		},
 		notify: false,
 		// open: false,
-		// online: false, // Work Offline Without Internet Connection
+		online: true, // Work Offline Without Internet Connection
 		// tunnel: true, tunnel: "projectname", // Demonstration page: http://projectname.localtunnel.me
 	})
 });
@@ -46,7 +46,8 @@ gulp.task('scripts', function() {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js',
 		'app/libs/mmenu/dist/mmenu.js',
-		'app/js/common.js', // Always at the end
+		'app/libs/owl.carousel/owl.carousel.js',
+		'app/js/common.js' // Always at the end
 		])
 	.pipe(concat('scripts.min.js'))
 	// .pipe(uglify()) // Mifify js (opt.)
