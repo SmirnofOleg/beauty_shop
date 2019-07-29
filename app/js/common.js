@@ -23,21 +23,18 @@ $(document).ready(function() {
 		api.bind( "close:finish", function( ) {
 			$('.menu-link').removeClass('menu-link_active');
 			});
-			
-	//sticky headers
-	document.addEventListener(
-        "DOMContentLoaded", () => {
-            new Mhead( "#my-header", {
-                scroll: {
-                    hide: 200
-                }
-            });
-        }
-	);
+
+	//выравниваем блоки по высоте
+	$('.carousel-services').on('initialized .owlСarousel', function(){
+		setTimeout(function(){
+			carouselServices()
+		}, 100);
+		});
+		
 	
 	//carousel-services слайдер owl-carousel
 	$('.carousel-services').owlCarousel({
-		loop: true, //бесконечный слайдер
+		 loop: true, //бесконечный слайдер
 		nav: true, //навигация
 		smartSpeed: 700, //скорость листания
 		navText: ['<i class="fa fa-angle-double-left"></i>', '<i class="fa fa-angle-double-right"></i>'],
@@ -53,5 +50,29 @@ $(document).ready(function() {
 				items: 3
 			},
 		}
+	});
+
+	// выравниваем блоки по высоте в слайдере
+	function carouselServices() {
+		$('.carousel-services__item__content').equalHeights();
+		$('.carousel-services__item').each(function(){
+			var ths  = $(this),
+				thsh = ths.find('.carousel-services__item__content').outerHeight();
+				ths.find('.carousel-services__item__img').css('min-height', thsh);
+		});
+	}
+	carouselServices();
+
+	window.onresize = carouselService;
+
+	/* меняем заголовок в слайдере и оборачиваем последнее слово в span*/
+	// $('.carousel-services__item__content .h3').each(function() {
+	// 	var ths = $(this);
+	// 	ths.html(ths.html().replace(/^(\S+\s*)/, '<span>$1</span>'));
+	// });
+
+	$('.end-span').each(function() {
+		var ths = $(this);
+		ths.html(ths.html().replace(/(\S+)\s*$/, '<span>$1</span>'));
 	});
 });

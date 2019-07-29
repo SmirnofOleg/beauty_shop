@@ -37,6 +37,9 @@ section
 
 b, strong
 	font-weight: bold
+
+
+
 /*кнопка*/
 
 .button
@@ -58,7 +61,7 @@ b, strong
 	cursor: pointer
 				
 	&:after 
-		transition: background-color .2s ease
+		transition: background-color .3s ease
 		position: absolute
 		content: ''
 		height: 4px
@@ -72,7 +75,6 @@ b, strong
 				
 	&:focus, &:hover
 		text-decoration: none
-		//color: #fff
 				
 	&:hover
 		background-color: lighten($accent, 5%)
@@ -83,7 +85,17 @@ b, strong
 		background-color: darken($accent, 5%)
 	&::after 
 		opacity: .32	
-
+	.button-white
+		background-color: #fff
+		color: #444
+		&:hover
+			&::after
+				background-color: rgba(#000, 0.6)
+				&:hover:after
+					background-color: rgba(#000, 0.2)
+		&:active
+			&::after
+				background-color: rgba(#000, 0.4)			
 body
 	font-size: 16px
 	min-width: 320px
@@ -202,6 +214,7 @@ body
 						span
 							text-transform: uppercase
 							padding: 0 20px
+
 					&::before, &::after
 						content: ''
 						height: 1px
@@ -274,6 +287,7 @@ body
 	border-top: rgba(#fff, 0.15) 1px solid
 	padding: 12px 0
 	background-color: rgba(#151515, 0.15)
+	color: #fff
 	.fa
 		margin-right: 5px
 		color: #555
@@ -287,6 +301,94 @@ $colors: $blue, $red, $accent
 	.carousel-services .owl-item:nth-child(#{length($colors)}n+#{$i})
 		background-color: nth($colors, $i)
 
+.carousel-services
+	background-color: $bg
+	&__item
+		position: relative
+		display: flex
+		flex-direction: column-reverse
+		font-size: 18px
+		font-weight: 300
+		color: #fff
+		&:hover
+			.carousel-services__item__img
+				opacity: 1
+		&__content
+			position: relative
+			display: flex
+			flex-direction: column
+			text-align: center
+			padding: 60px 10%	
+			width: 100%
+			.logo
+				color: #000
+				font-weight: 800
+				text-transform: uppercase
+			.h3
+				font-weight: 800
+				font-size: 28px
+				margin-top: 5px
+				margin-bottom: 20px
+				span
+					font-weight: 300
+					font-size: 18px
+			div
+				.button-white
+					background-color: #fff
+					color: #444
+					&:hover
+						color: #444
+						&::after
+							background-color: rgba(#000, 0.6)
+							&:hover:after
+								background-color: rgba(#000, 0.2)
+					&:active
+						&::after
+							background-color: rgba(#000, 0.4)
+			.carousel-services-list
+				margin: 0
+				padding: 0
+				margin-bottom: 25px
+				list-style: none
+				li
+					padding: 10px
+					border-bottom: 1px solid rgba(#000, 0.12)
+					&:last-child
+						border-bottom: none
+					strong
+						font-family: firasans, sans-serif
+						color: #4a4a4a		
+		&__img
+			background-size: cover
+			background-position: center
+			opacity: 0.7
+			transition: 0.3s
+	/*делаем блоки в шахматном порядке*/		
+	.owl-item
+		&:nth-child(2n+2)
+			.carousel-services__item
+				flex-direction: column	
+					
+	.owl-nav 
+		position: absolute
+		top: 0
+		width: 100%
+		color: #222222
+		font-size: 26px
+		
+		div 
+			width: 64px
+			height: 64px
+			background-color: #ffffff
+			display: flex
+			align-items: center
+			justify-content: center
+
+			&.owl-next 
+				position: absolute
+				top: 0
+				right: 0	
+			
 @import "media" // Always at the end
 
 
