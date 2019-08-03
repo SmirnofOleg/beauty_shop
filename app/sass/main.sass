@@ -85,14 +85,14 @@ b, strong
 		background-color: darken($accent, 5%)
 	&::after 
 		opacity: .32	
-	.button-white
-		background-color: #fff
-		color: #444
-		&:hover
-			&::after
-				background-color: rgba(#000, 0.6)
-				&:hover:after
-					background-color: rgba(#000, 0.2)
+.button-white
+	background-color: #fff
+	color: #444
+	&:hover
+		&::after
+			background-color: rgba(#000, 0.6)
+			&:hover:after
+				background-color: rgba(#000, 0.2)
 		&:active
 			&::after
 				background-color: rgba(#000, 0.4)			
@@ -399,6 +399,78 @@ $colors: $blue, $red, $accent
 		font-size: 18px
 		margin: 30px 0
 	
+	//форма обратной связи
+	&-call
+		&::before 
+			position: absolute
+			content: ''
+			background-color: rgba(#F9C869, 0.92)
+			top: 0
+			left: 50%
+			right: 0
+			bottom: 0
+		
+		.form-img
+			position: relative
+			width: 100%
+			height: auto
+			img
+				background-size: cover
+				background-position: center
+		.callback 
+			position: relative
+			padding: 25% 0
+			.logo
+				font-size: 32px
+				text-decoration: none
+				text-transform: uppercase
+				color: #000
+				span
+					color: #fff
+					font-weight: 800
+			.formhead-h2
+				font-size: 52px
+				font-weight: 800
+				color: #fff
+
+			p 
+				margin: 0 0 15px 0
+				color: #fff
+
+			input, select, .selectize-control.single 
+				margin-top: 18px
+				width: 100%
+			
+			button 
+				margin-top: 35px
+			
+					
+
+			.success 
+				position: absolute
+				top: 0
+				left: 0
+				right: 0
+				bottom: 0
+				display: none
+				text-transform: uppercase
+				font-weight: bold
+				font-size: 20px				
+				span 
+					margin: auto
+				
+
+				& ~ * 
+					transition: all .5s ease
+				
+
+				&.active 
+					display: flex
+
+					& ~ * 
+						opacity: 0.6
+						filter: blur(4px)
+
 .section-overlay 
 	position: relative
 
@@ -441,7 +513,7 @@ $colors: $blue, $red, $accent
 		height: auto
 		&:before 
 			font-family: fontawesome
-			font-size: 32px
+			font-size: 26px
 		
 		&--prev 
 			left: 25px
