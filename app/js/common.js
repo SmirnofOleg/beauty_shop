@@ -25,7 +25,7 @@ $(document).ready(function() {
 			});
 
 	//выравниваем блоки по высоте
-	$('.carousel-services').on('initialized .owlСarousel', function(){
+	$('.carousel-services').on('initialized.owl.carousel', function(){
 		setTimeout(function(){
 			carouselServices()
 		}, 100);
@@ -66,11 +66,7 @@ $(document).ready(function() {
 	window.onresize = carouselService;
 
 	/* меняем заголовок в слайдере и оборачиваем последнее слово в span*/
-	// $('.carousel-services__item__content .h3').each(function() {
-	// 	var ths = $(this);
-	// 	ths.html(ths.html().replace(/^(\S+\s*)/, '<span>$1</span>'));
-	// });
-
+	
 	$('.end-span').each(function() {
 		var ths = $(this);
 		ths.html(ths.html().replace(/(\S+)\s*$/, '<span>$1</span>'));
