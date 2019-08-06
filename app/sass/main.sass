@@ -415,8 +415,9 @@ $colors: $blue, $red, $accent
 			width: 100%
 			height: auto
 			img
-				background-size: cover
+				background-size: contain
 				background-position: center
+				width: 100%
 		.callback 
 			position: relative
 			padding: 25% 0
@@ -428,46 +429,65 @@ $colors: $blue, $red, $accent
 				span
 					color: #fff
 					font-weight: 800
-			.formhead-h2
-				font-size: 52px
-				font-weight: 800
-				color: #fff
+			.formhead 
+					h2
+						font-size: 30px
+						font-weight: 800
+						color: #fff
 
 			p 
 				margin: 0 0 15px 0
 				color: #fff
 
-			input, select, .selectize-control.single 
+			input
 				margin-top: 18px
 				width: 100%
-			
+				background-color: transparent
+				border: rgba(#000, 0.1) 1px solid
+				border-bottom: rgba(#000, 0.1) 2px solid
+				border-radius: 2px
+				padding: 8px 20px
+				outline: none
+				font-size: 16px
+
+				&::-webkit-input-placeholder
+					color: #fff
+					opacity: 1
+				&::-moz-input-placeholder
+					color: #fff
+					opacity: 1
+				&::-ms-input-placeholder
+					color: #fff 	
 			button 
 				margin-top: 35px
 			
 					
 
-			.success 
+			.success
+				display: none
+				// display: flex
 				position: absolute
 				top: 0
 				left: 0
 				right: 0
 				bottom: 0
-				display: none
 				text-transform: uppercase
 				font-weight: bold
-				font-size: 20px				
+				font-size: 20px
+				
+				z-index: 10			
 				span 
 					margin: auto
-				
+					color: #fff
 
 				& ~ * 
 					transition: all .5s ease
 				
-
 				&.active 
-					display: flex
+					// display: flex
+					display: none
 
-					& ~ * 
+					& ~ *
 						opacity: 0.6
 						filter: blur(4px)
 
